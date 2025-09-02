@@ -14,6 +14,11 @@ jobs:
       TF_CLOUD_ORGANIZATION: ${{ github.repository_owner }}
       TF_API_TOKEN: ${{ secrets.TFE_TOKEN }}
 
+    permissions:
+      contents: read
+      packages: write  # important: needed to push to GHCR
+      id-token: write  # optional: for improved auth
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
