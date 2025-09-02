@@ -10,10 +10,17 @@ RUN apk add --no-cache ca-certificates tzdata bash
 #
 # Option B: pull official tarball at build time (example):
 #   (Replace URL/checksum with what you use internally)
-RUN wget -qO /tmp/tbot.tar.gz "https://cdn.teleport.dev/tbot-v18.1.6-linux-amd64-bin.tar.gz" \
- && tar -C /usr/local/bin -xzf /tmp/tbot.tar.gz tbot \
- && rm -f /tmp/tbot.tar.gz \
- && chmod +x /usr/local/bin/tbot
+ARG TB_VERSION=18.1.6
+ARG TB_OS=linux
+ARG TB_ARCH=amd64
+
+RUN set -eux; \
+  wget -qO /tmp/teleport.tar.gz "https://cdn.teleport.dev/teleport-v${TB_VERSION}-${TB_OS}-${TB_ARCH}-bin.tar.gz"; \
+  mkdir -p /tmp/teleport; \
+  tar -xzf /tmp/teleport.tar.gz -C /tmp/teleport; \
+  cp /tmp/teleport/teleport/tbot /usr/local/bin/tbot; \
+  chmod +x /usr/local/bin/tbot; \
+  rm -rf /tmp/teleport /tmp/teleport.tar.gz
 
 # --- Wrapper that never exits ---
 # Retries tbot forever; logs exit codes; configurable sleep.
