@@ -1,4 +1,4 @@
-# us-east1-docker.pkg.dev/tf-k8s-cluster-infra-9734/thirdparty/tbot-wrapped:18.1.6
+# us-east1-docker.pkg.dev/tf-k8s-cluster-infra-9734/thirdparty/tbot-wrapped:18.6.4
 FROM alpine:3.20
 
 # Minimal deps for TLS + DNS
