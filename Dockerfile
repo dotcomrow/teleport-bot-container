@@ -10,7 +10,7 @@ RUN apk add --no-cache ca-certificates tzdata bash
 #
 # Option B: pull official tarball at build time (example):
 #   (Replace URL/checksum with what you use internally)
-ARG TB_VERSION=18.1.6
+ARG TB_VERSION=18.6.4
 ARG TB_OS=linux
 ARG TB_ARCH=amd64
 
