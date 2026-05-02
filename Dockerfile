@@ -1,4 +1,4 @@
-# us-east1-docker.pkg.dev/tf-k8s-cluster-infra-9734/thirdparty/tbot-wrapped:18.6.4
+# us-east1-docker.pkg.dev/tf-k8s-cluster-infra-9734/thirdparty/tbot-wrapped:18.7.6
 FROM alpine:3.20
 
 # Minimal deps for TLS + DNS
@@ -10,7 +10,7 @@ RUN apk add --no-cache ca-certificates tzdata bash
 #
 # Option B: pull official tarball at build time (example):
 #   (Replace URL/checksum with what you use internally)
-ARG TB_VERSION=18.6.4
+ARG TB_VERSION=18.7.6
 ARG TB_OS=linux
 ARG TB_ARCH=amd64
 
